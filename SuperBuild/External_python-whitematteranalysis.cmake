@@ -1,3 +1,7 @@
+# Copyright 2018 Harvard Medical School
+# Adapted from https://github.com/Radiomics/SlicerRadiomics under
+# BSD-3 License https://github.com/Radiomics/SlicerRadiomics/blob/master/LICENSE.txt
+
 set(proj python-whitematteranalysis)
 
 # Set dependency list

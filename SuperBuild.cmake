@@ -1,3 +1,7 @@
+# Copyright 2018 Harvard Medical School
+# Adapted from https://github.com/Radiomics/SlicerRadiomics under
+# BSD-3 License https://github.com/Radiomics/SlicerRadiomics/blob/master/LICENSE.txt
+
 include(SlicerCheckCMakeHTTPS)
 slicer_check_cmake_https()
 
