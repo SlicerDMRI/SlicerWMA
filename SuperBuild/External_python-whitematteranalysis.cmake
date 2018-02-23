@@ -23,10 +23,9 @@ if(NOT ${CMAKE_PROJECT_NAME}_USE_SYSTEM_${proj})
     set(git_protocol "git")
   endif()
 
-#### TODO put this back "${git_protocol}://github.com/SlicerDMRI/whitematteranalysis"
   ExternalProject_SetIfNotDefined(
     ${CMAKE_PROJECT_NAME}_${proj}_GIT_REPOSITORY
-    "/Users/inorton/work/git/whitematteranalysis"
+    "${git_protocol}://github.com/SlicerDMRI/whitematteranalysis"
     QUIET
     )
 
