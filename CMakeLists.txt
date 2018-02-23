@@ -1,3 +1,7 @@
+# Copyright 2018 Harvard Medical School
+# Adapted from https://github.com/Radiomics/SlicerRadiomics under
+# BSD-3 License https://github.com/Radiomics/SlicerRadiomics/blob/master/LICENSE.txt
+
 cmake_minimum_required(VERSION 3.5)
 
 project(SlicerWMA)
