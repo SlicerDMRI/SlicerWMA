@@ -21,6 +21,7 @@ set(SUPERBUILD_TOPLEVEL_PROJECT inner)
 # Extension dependencies
 find_package(Slicer REQUIRED)
 include(${Slicer_USE_FILE})
+mark_as_superbuild(Slicer_DIR)
 
 #-----------------------------------------------------------------------------
 # SuperBuild setup
@@ -30,7 +31,6 @@ if(${EXTENSION_NAME}_SUPERBUILD)
   include("${CMAKE_CURRENT_SOURCE_DIR}/SuperBuild.cmake")
   return()
 endif()
-include(SuperBuild.cmake)
 
 #-----------------------------------------------------------------------------
 # Extension modules
@@ -47,5 +47,6 @@ install(
     )
 
 #-----------------------------------------------------------------------------
+set(CPACK_INSTALL_CMAKE_PROJECTS "${CPACK_INSTALL_CMAKE_PROJECTS};${CMAKE_BINARY_DIR};${EXTENSION_NAME};ALL;/")
 include(${Slicer_EXTENSION_GENERATE_CONFIG})
 include(${Slicer_EXTENSION_CPACK})
