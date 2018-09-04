@@ -104,7 +104,7 @@ if(NOT ${CMAKE_PROJECT_NAME}_USE_SYSTEM_${proj})
         CC=${CMAKE_C_COMPILER}
         PYTHONPATH=${python_sitepackages_DIR}
       ${wrapper_script} ${PYTHON_EXECUTABLE} -m pip install . ${_no_binary}
-        --prefix ${python_packages_DIR_NATIVE_DIR}
+        --prefix ${python_packages_DIR_NATIVE_DIR} --upgrade
     )
 
   ExternalProject_Add(${proj}
