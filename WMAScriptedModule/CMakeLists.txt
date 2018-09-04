@@ -1,5 +1,5 @@
 #-----------------------------------------------------------------------------
-set(MODULE_NAME WhiteMatterAnalysisCLI)
+set(MODULE_NAME WMAScriptedModule)
 
 #-----------------------------------------------------------------------------
 set(MODULE_PYTHON_SCRIPTS

@@ -38,7 +38,7 @@ endif()
 
 #-----------------------------------------------------------------------------
 # Extension modules
-add_subdirectory(WhiteMatterAnalysisCLI)
+add_subdirectory(WMAScriptedModule)
 
 
 #-----------------------------------------------------------------------------
