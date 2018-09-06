@@ -9,12 +9,10 @@ project(SlicerWMA)
 #-----------------------------------------------------------------------------
 # Extension meta-information
 set(EXTENSION_HOMEPAGE "http://github.com/SlicerDMRI/SlicerWMA")
-set(EXTENSION_CATEGORY "Diffusion/Tractography")
+set(EXTENSION_CATEGORY "Libraries")
 set(EXTENSION_CONTRIBUTORS "Lauren O'Donnell (Brigham & Women's Hospital), Fan Zhang (Brigham & Women's Hospital), Isaiah Norton (Brigham & Women's Hospital)")
-set(EXTENSION_DESCRIPTION "This is a Slicer interface to Lauren O'Donnell's WhiteMatterAnalysis program:
-
-https://github.com/SlicerDMRI/whitematteranalysis")
-set(EXTENSION_ICONURL "http://www.example.com/Slicer/Extensions/SlicerWMA.png")
+set(EXTENSION_DESCRIPTION "SlicerWMA currently provides the WhiteMatterAnalysis (https://github.com/SlicerDMRI/whitematteranalysis) python package and dependencies installed within Slicer's Python environment.")
+set(EXTENSION_ICONURL "https://raw.githubusercontent.com/SlicerDMRI/SlicerWMA/master/SlicerWMA.png")
 set(EXTENSION_SCREENSHOTURLS "http://www.example.com/Slicer/Extensions/SlicerWMA/Screenshots/1.png")
 set(EXTENSION_DEPENDS "NA") # Specified as a space separated string, a list or 'NA' if any
 set(EXTENSION_BUILD_SUBDIRECTORY inner-build)
