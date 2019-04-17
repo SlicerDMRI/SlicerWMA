@@ -83,13 +83,6 @@ if(NOT ${CMAKE_PROJECT_NAME}_USE_SYSTEM_${proj})
       --prefix ${python_packages_DIR_NATIVE_DIR}
     )
 
-  set(_install_multiprocessing COMMAND ${CMAKE_COMMAND}
-    -E env
-      PYTHONNOUSERSITE=1
-    ${PYTHON_EXECUTABLE} -m pip install multiprocessing
-      --prefix ${python_packages_DIR_NATIVE_DIR}
-    )
-
   set(_install_xlrd COMMAND ${CMAKE_COMMAND}
     -E env
       PYTHONNOUSERSITE=1
@@ -120,7 +113,6 @@ if(NOT ${CMAKE_PROJECT_NAME}_USE_SYSTEM_${proj})
     ${_install_joblib}
     ${_install_statsmodels}
     ${_install_scipy}
-    ${_install_multiprocessing}
     ${_install_xlrd}
     ${_install_whitematteranalysis}
     DEPENDS
