@@ -59,6 +59,7 @@ if(NOT ${CMAKE_PROJECT_NAME}_USE_SYSTEM_${proj})
       PYTHONNOUSERSITE=1
     ${PYTHON_EXECUTABLE} -m pip install Cython
       --prefix ${python_packages_DIR_NATIVE_DIR}
+      --no-warn-script-location
     )
  
   set(_install_joblib COMMAND ${CMAKE_COMMAND}
@@ -66,6 +67,7 @@ if(NOT ${CMAKE_PROJECT_NAME}_USE_SYSTEM_${proj})
       PYTHONNOUSERSITE=1
     ${PYTHON_EXECUTABLE} -m pip install joblib>=0.11
       --prefix ${python_packages_DIR_NATIVE_DIR}
+      --no-warn-script-location
     )
 
   set(_install_statsmodels COMMAND ${CMAKE_COMMAND}
@@ -73,6 +75,7 @@ if(NOT ${CMAKE_PROJECT_NAME}_USE_SYSTEM_${proj})
       PYTHONNOUSERSITE=1
     ${PYTHON_EXECUTABLE} -m pip install statsmodels
       --prefix ${python_packages_DIR_NATIVE_DIR}
+      --no-warn-script-location
     )
 
   set(_install_xlrd COMMAND ${CMAKE_COMMAND}
@@ -80,6 +83,7 @@ if(NOT ${CMAKE_PROJECT_NAME}_USE_SYSTEM_${proj})
       PYTHONNOUSERSITE=1
     ${PYTHON_EXECUTABLE} -m pip install xlrd 
       --prefix ${python_packages_DIR_NATIVE_DIR}
+      --no-warn-script-location
     )
 
   # Install whitematteranalysis and its requirement
@@ -90,6 +94,7 @@ if(NOT ${CMAKE_PROJECT_NAME}_USE_SYSTEM_${proj})
         PYTHONPATH=${python_sitepackages_DIR}
       ${wrapper_script} ${PYTHON_EXECUTABLE} -m pip install . ${_no_binary}
         --prefix ${python_packages_DIR_NATIVE_DIR} --upgrade
+        --no-warn-script-location
     )
 
   ExternalProject_Add(${proj}
