@@ -49,23 +49,17 @@ if(NOT ${CMAKE_PROJECT_NAME}_USE_SYSTEM_${proj})
   set(python_packages_DIR "${CMAKE_BINARY_DIR}/python-packages-install")
   file(TO_NATIVE_PATH ${python_packages_DIR} python_packages_DIR_NATIVE_DIR)
 
-  set(python_sitepackages_DIR "${CMAKE_BINARY_DIR}/python-packages-install/lib/python2.7/site-packages")
+  set(python_sitepackages_DIR "${python_packages_DIR}/${PYTHON_SITE_PACKAGES_SUBDIR}")
   file(TO_NATIVE_PATH ${python_sitepackages_DIR} python_sitepackages_DIR_NATIVE_DIR)
 
-
   set(_no_binary "")
-
-  set(_install_setuptools COMMAND ${CMAKE_COMMAND}
-    -E env
-      PYTHONNOUSERSITE=1
-    ${PYTHON_EXECUTABLE} -m pip install setuptools
-    )
 
   set(_install_cython COMMAND ${CMAKE_COMMAND}
     -E env
       PYTHONNOUSERSITE=1
     ${PYTHON_EXECUTABLE} -m pip install Cython
       --prefix ${python_packages_DIR_NATIVE_DIR}
+      --no-warn-script-location
     )
  
   set(_install_joblib COMMAND ${CMAKE_COMMAND}
@@ -73,6 +67,7 @@ if(NOT ${CMAKE_PROJECT_NAME}_USE_SYSTEM_${proj})
       PYTHONNOUSERSITE=1
     ${PYTHON_EXECUTABLE} -m pip install joblib>=0.11
       --prefix ${python_packages_DIR_NATIVE_DIR}
+      --no-warn-script-location
     )
 
   set(_install_statsmodels COMMAND ${CMAKE_COMMAND}
@@ -80,13 +75,7 @@ if(NOT ${CMAKE_PROJECT_NAME}_USE_SYSTEM_${proj})
       PYTHONNOUSERSITE=1
     ${PYTHON_EXECUTABLE} -m pip install statsmodels
       --prefix ${python_packages_DIR_NATIVE_DIR}
-    )
-
-  set(_install_scipy COMMAND ${CMAKE_COMMAND}
-    -E env
-      PYTHONNOUSERSITE=1
-    ${PYTHON_EXECUTABLE} -m pip install scipy
-      --prefix ${python_packages_DIR_NATIVE_DIR}
+      --no-warn-script-location
     )
 
   set(_install_xlrd COMMAND ${CMAKE_COMMAND}
@@ -94,6 +83,7 @@ if(NOT ${CMAKE_PROJECT_NAME}_USE_SYSTEM_${proj})
       PYTHONNOUSERSITE=1
     ${PYTHON_EXECUTABLE} -m pip install xlrd 
       --prefix ${python_packages_DIR_NATIVE_DIR}
+      --no-warn-script-location
     )
 
   # Install whitematteranalysis and its requirement
@@ -104,6 +94,7 @@ if(NOT ${CMAKE_PROJECT_NAME}_USE_SYSTEM_${proj})
         PYTHONPATH=${python_sitepackages_DIR}
       ${wrapper_script} ${PYTHON_EXECUTABLE} -m pip install . ${_no_binary}
         --prefix ${python_packages_DIR_NATIVE_DIR} --upgrade
+        --no-warn-script-location
     )
 
   ExternalProject_Add(${proj}
@@ -115,11 +106,9 @@ if(NOT ${CMAKE_PROJECT_NAME}_USE_SYSTEM_${proj})
     CONFIGURE_COMMAND ""
     BUILD_COMMAND ""
     INSTALL_COMMAND ${CMAKE_COMMAND} -E  echo_append ""
-    ${_install_setuptools}
     ${_install_cython}
     ${_install_joblib}
     ${_install_statsmodels}
-    ${_install_scipy}
     ${_install_xlrd}
     ${_install_whitematteranalysis}
     DEPENDS
